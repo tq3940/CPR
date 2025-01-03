@@ -1,0 +1,64 @@
+INFO:root:Namespace(model_name='CPRMF', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-29 22:58:26 ---------------------------------------------
+INFO:root:
+====================================
+ Arguments          | Values        
+====================================
+ batch_size         | 2048         
+ choose_rate        | 4.0          
+ data_appendix      |              
+ dataset            | MIND_small   
+ dropout            | 0            
+ dyn_sample_rate    | 2.0          
+ early_stop         | 10           
+ emb_size           | 128         
+ epoch              | 200          
+ eval_batch_size    | 256          
+ gpu                | 0            
+ k_samples          | 2            
+ l2                 | 1e-06        
+ lr                 | 0.001        
+ main_metric        | NDCG@2       
+ num_neg            | 1            
+ num_workers        | 12           
+ optimizer          | Adam         
+ random_seed        | 0            
+ save_final_results | 1            
+ test_all           | 0            
+ topk               | 1,2,3,5,10,20
+====================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MIND_small/Readers/CPRReader.pkl
+INFO:root:#params: 39618560
+INFO:root:CPRMF(
+  (u_embeddings): Embedding(16527, 2048)
+  (i_embeddings): Embedding(2818, 2048)
+)
+INFO:root:Test Before Training: (HR@1:0.0118,NDCG@1:0.0118,HR@2:0.0196,NDCG@2:0.0167,HR@3:0.0275,NDCG@3:0.0206,HR@5:0.0520,NDCG@5:0.0306,HR@10:0.1049,NDCG@10:0.0473,HR@20:0.1961,NDCG@20:0.0700)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.6946072 [10.1 s]	dev=(HR@2:0.0248,NDCG@2:0.0207) [0.3 s] *
+INFO:root:Epoch 2     loss=0.6674286 [9.6 s]	dev=(HR@2:0.0328,NDCG@2:0.0276) [0.4 s] *
+INFO:root:Epoch 3     loss=0.5744288 [9.2 s]	dev=(HR@2:0.0387,NDCG@2:0.0330) [0.4 s] *
+INFO:root:Epoch 4     loss=0.4004345 [9.4 s]	dev=(HR@2:0.0334,NDCG@2:0.0283) [0.3 s]
+INFO:root:Epoch 5     loss=0.2281208 [10.6 s]	dev=(HR@2:0.0340,NDCG@2:0.0287) [0.4 s]
+INFO:root:Epoch 6     loss=0.1254508 [10.3 s]	dev=(HR@2:0.0353,NDCG@2:0.0303) [0.4 s]
+INFO:root:Epoch 7     loss=0.0769935 [8.7 s]	dev=(HR@2:0.0347,NDCG@2:0.0299) [0.4 s]
+INFO:root:Epoch 8     loss=0.0527642 [9.5 s]	dev=(HR@2:0.0347,NDCG@2:0.0297) [0.4 s]
+INFO:root:Epoch 9     loss=0.0396289 [9.7 s]	dev=(HR@2:0.0353,NDCG@2:0.0301) [0.4 s]
+INFO:root:Epoch 10    loss=0.0319921 [9.9 s]	dev=(HR@2:0.0347,NDCG@2:0.0298) [0.4 s]
+INFO:root:Epoch 11    loss=0.0268029 [8.5 s]	dev=(HR@2:0.0356,NDCG@2:0.0303) [0.4 s]
+INFO:root:Epoch 12    loss=0.0234492 [9.4 s]	dev=(HR@2:0.0359,NDCG@2:0.0301) [0.4 s]
+INFO:root:Early stop at 12 based on dev result.
+INFO:root:
+Best Iter(dev)=    3	 dev=(HR@2:0.0387,NDCG@2:0.0330) [120.2 s] 
+INFO:root:Load model from ../model/CPRMF/CPRMF__MIND_small__0__lr=0.001__l2=1e-06__emb_size=128__batch_size=2048__dyn_sample_rate=2.0__choose_rate=4.0__k_samples=2.pt
+INFO:root:
+Dev  After Training: (HR@1:0.0233,NDCG@1:0.0233,HR@2:0.0387,NDCG@2:0.0330,HR@3:0.0561,NDCG@3:0.0417,HR@5:0.0834,NDCG@5:0.0528,HR@10:0.1564,NDCG@10:0.0760,HR@20:0.2727,NDCG@20:0.1051)
+INFO:root:
+Test After Training: (HR@1:0.0480,NDCG@1:0.0480,HR@2:0.0676,NDCG@2:0.0604,HR@3:0.0912,NDCG@3:0.0722,HR@5:0.1245,NDCG@5:0.0856,HR@10:0.1902,NDCG@10:0.1068,HR@20:0.2804,NDCG@20:0.1292)
+INFO:root:Saving top-100 recommendation results to: ../log/CPRMF/CPRMF__MIND_small__0__lr=0/rec-CPRMF-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/CPRMF/CPRMF__MIND_small__0__lr=0/rec-CPRMF-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2024-12-29 23:00:31 ---------------------------------------------

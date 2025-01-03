@@ -1,0 +1,99 @@
+INFO:root:Namespace(model_name='ComiRec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-29 21:45:00 ---------------------------------------------
+INFO:root:
+====================================
+ Arguments          | Values        
+====================================
+ K                  | 4            
+ add_pos            | 1            
+ attn_size          | 8            
+ batch_size         | 2048         
+ data_appendix      |              
+ dataset            | MovieLens_1M 
+ dropout            | 0            
+ early_stop         | 10           
+ emb_size           | 128          
+ epoch              | 200          
+ eval_batch_size    | 256          
+ gpu                | 0            
+ history_max        | 20           
+ l2                 | 1e-06        
+ lr                 | 0.001        
+ main_metric        | NDCG@2       
+ num_neg            | 1            
+ num_workers        | 14           
+ optimizer          | Adam         
+ random_seed        | 0            
+ save_final_results | 1            
+ test_all           | 0            
+ topk               | 1,2,3,5,10,20
+====================================
+INFO:root:Device: cuda
+INFO:root:Reading data from "data", dataset = "MovieLens_1M" 
+INFO:root:Counting dataset statistics...
+INFO:root:"# user": 6032, "# item": 3125, "# entry": 574197
+INFO:root:Appending history info...
+INFO:root:Save corpus to data/MovieLens_1M/Readers/SeqReader.pkl
+INFO:root:#params: 403884
+INFO:root:ComiRec(
+  (i_embeddings): Embedding(3126, 128)
+  (p_embeddings): Embedding(21, 128)
+  (W1): Linear(in_features=128, out_features=8, bias=True)
+  (W2): Linear(in_features=8, out_features=4, bias=True)
+)
+INFO:root:Test Before Training: (HR@1:0.0115,NDCG@1:0.0115,HR@2:0.0233,NDCG@2:0.0189,HR@3:0.0310,NDCG@3:0.0228,HR@5:0.0470,NDCG@5:0.0294,HR@10:0.1002,NDCG@10:0.0464,HR@20:0.2046,NDCG@20:0.0724)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.4239119 [8.5 s]	dev=(HR@2:0.2010,NDCG@2:0.1702) test=(HR@1:0.1218,NDCG@1:0.1218) [1.5 s] *
+INFO:root:Epoch 2     loss=0.2958249 [7.5 s]	dev=(HR@2:0.2268,NDCG@2:0.1906) [0.7 s] *
+INFO:root:Epoch 3     loss=0.2560381 [7.8 s]	dev=(HR@2:0.2436,NDCG@2:0.2078) [0.7 s] *
+INFO:root:Epoch 4     loss=0.2257592 [7.9 s]	dev=(HR@2:0.2553,NDCG@2:0.2213) [0.8 s] *
+INFO:root:Epoch 5     loss=0.2045100 [8.0 s]	dev=(HR@2:0.2689,NDCG@2:0.2303) [0.7 s] *
+INFO:root:Epoch 6     loss=0.1906921 [7.9 s]	dev=(HR@2:0.2814,NDCG@2:0.2418) [0.7 s] *
+INFO:root:Epoch 7     loss=0.1795243 [7.8 s]	dev=(HR@2:0.2881,NDCG@2:0.2448) [0.7 s] *
+INFO:root:Epoch 8     loss=0.1720064 [7.6 s]	dev=(HR@2:0.2916,NDCG@2:0.2491) [0.7 s] *
+INFO:root:Epoch 9     loss=0.1657090 [7.4 s]	dev=(HR@2:0.2947,NDCG@2:0.2536) [0.8 s] *
+INFO:root:Epoch 10    loss=0.1599686 [8.0 s]	dev=(HR@2:0.2916,NDCG@2:0.2535) [0.7 s]
+INFO:root:Epoch 11    loss=0.1554172 [7.8 s]	dev=(HR@2:0.3013,NDCG@2:0.2607) [0.7 s] *
+INFO:root:Epoch 12    loss=0.1513410 [7.4 s]	dev=(HR@2:0.3091,NDCG@2:0.2658) [0.8 s] *
+INFO:root:Epoch 13    loss=0.1468288 [7.5 s]	dev=(HR@2:0.3107,NDCG@2:0.2670) [0.7 s] *
+INFO:root:Epoch 14    loss=0.1444848 [7.6 s]	dev=(HR@2:0.3150,NDCG@2:0.2683) [0.7 s] *
+INFO:root:Epoch 15    loss=0.1417878 [7.9 s]	dev=(HR@2:0.3193,NDCG@2:0.2728) [0.7 s] *
+INFO:root:Epoch 16    loss=0.1388080 [8.0 s]	dev=(HR@2:0.3185,NDCG@2:0.2718) [0.7 s]
+INFO:root:Epoch 17    loss=0.1359842 [7.9 s]	dev=(HR@2:0.3189,NDCG@2:0.2715) [0.7 s]
+INFO:root:Epoch 18    loss=0.1347907 [7.9 s]	dev=(HR@2:0.3193,NDCG@2:0.2739) [0.7 s] *
+INFO:root:Epoch 19    loss=0.1330261 [7.8 s]	dev=(HR@2:0.3212,NDCG@2:0.2734) [0.7 s]
+INFO:root:Epoch 20    loss=0.1317956 [7.9 s]	dev=(HR@2:0.3220,NDCG@2:0.2743) [0.7 s] *
+INFO:root:Epoch 21    loss=0.1297302 [7.9 s]	dev=(HR@2:0.3197,NDCG@2:0.2734) test=(HR@1:0.2286,NDCG@1:0.2286) [1.4 s]
+INFO:root:Epoch 22    loss=0.1281877 [7.6 s]	dev=(HR@2:0.3224,NDCG@2:0.2747) [0.7 s] *
+INFO:root:Epoch 23    loss=0.1264420 [7.8 s]	dev=(HR@2:0.3224,NDCG@2:0.2733) [0.8 s]
+INFO:root:Epoch 24    loss=0.1247392 [7.9 s]	dev=(HR@2:0.3177,NDCG@2:0.2726) [0.7 s]
+INFO:root:Epoch 25    loss=0.1244948 [7.6 s]	dev=(HR@2:0.3228,NDCG@2:0.2768) [0.7 s] *
+INFO:root:Epoch 26    loss=0.1234013 [7.6 s]	dev=(HR@2:0.3216,NDCG@2:0.2762) [0.7 s]
+INFO:root:Epoch 27    loss=0.1220796 [7.7 s]	dev=(HR@2:0.3158,NDCG@2:0.2715) [0.7 s]
+INFO:root:Epoch 28    loss=0.1213583 [7.8 s]	dev=(HR@2:0.3247,NDCG@2:0.2775) [0.7 s] *
+INFO:root:Epoch 29    loss=0.1210872 [7.8 s]	dev=(HR@2:0.3201,NDCG@2:0.2754) [0.7 s]
+INFO:root:Epoch 30    loss=0.1197925 [7.9 s]	dev=(HR@2:0.3220,NDCG@2:0.2756) [0.7 s]
+INFO:root:Epoch 31    loss=0.1193009 [7.9 s]	dev=(HR@2:0.3271,NDCG@2:0.2823) [0.7 s] *
+INFO:root:Epoch 32    loss=0.1182658 [7.8 s]	dev=(HR@2:0.3255,NDCG@2:0.2780) [0.7 s]
+INFO:root:Epoch 33    loss=0.1180172 [7.5 s]	dev=(HR@2:0.3271,NDCG@2:0.2793) [0.7 s]
+INFO:root:Epoch 34    loss=0.1168109 [7.6 s]	dev=(HR@2:0.3197,NDCG@2:0.2752) [0.8 s]
+INFO:root:Epoch 35    loss=0.1164018 [7.7 s]	dev=(HR@2:0.3177,NDCG@2:0.2749) [0.7 s]
+INFO:root:Epoch 36    loss=0.1156544 [7.9 s]	dev=(HR@2:0.3212,NDCG@2:0.2772) [0.8 s]
+INFO:root:Epoch 37    loss=0.1155908 [7.5 s]	dev=(HR@2:0.3228,NDCG@2:0.2786) [0.8 s]
+INFO:root:Epoch 38    loss=0.1139254 [7.9 s]	dev=(HR@2:0.3228,NDCG@2:0.2768) [0.7 s]
+INFO:root:Epoch 39    loss=0.1134304 [7.9 s]	dev=(HR@2:0.3228,NDCG@2:0.2770) [0.7 s]
+INFO:root:Epoch 40    loss=0.1134581 [7.9 s]	dev=(HR@2:0.3259,NDCG@2:0.2805) [0.8 s]
+INFO:root:Early stop at 40 based on dev result.
+INFO:root:
+Best Iter(dev)=   31	 dev=(HR@2:0.3271,NDCG@2:0.2823) [341.8 s] 
+INFO:root:Load model from ../model/ComiRec/ComiRec__MovieLens_1M__0__lr=0.001__l2=1e-06__emb_size=128__attn_size=8__K=4.pt
+INFO:root:
+Dev  After Training: (HR@1:0.2057,NDCG@1:0.2057,HR@2:0.3271,NDCG@2:0.2823,HR@3:0.3989,NDCG@3:0.3182,HR@5:0.5109,NDCG@5:0.3642,HR@10:0.6795,NDCG@10:0.4187,HR@20:0.8123,NDCG@20:0.4522)
+INFO:root:
+Test After Training: (HR@1:0.2335,NDCG@1:0.2335,HR@2:0.3493,NDCG@2:0.3066,HR@3:0.4297,NDCG@3:0.3468,HR@5:0.5275,NDCG@5:0.3870,HR@10:0.6708,NDCG@10:0.4333,HR@20:0.8041,NDCG@20:0.4671)
+INFO:root:Saving top-100 recommendation results to: ../log/ComiRec/ComiRec__MovieLens_1M__0__lr=0/rec-ComiRec-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/ComiRec/ComiRec__MovieLens_1M__0__lr=0/rec-ComiRec-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2024-12-29 21:50:51 ---------------------------------------------

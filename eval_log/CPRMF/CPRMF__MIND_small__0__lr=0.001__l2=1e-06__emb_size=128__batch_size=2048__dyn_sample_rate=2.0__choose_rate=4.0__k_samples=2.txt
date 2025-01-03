@@ -1,0 +1,74 @@
+INFO:root:Namespace(model_name='CPRMF', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-30 12:06:29 ---------------------------------------------
+INFO:root:
+
+====================================
+
+ Arguments          | Values        
+
+====================================
+
+ batch_size         | 2048         
+
+ choose_rate        | 4.0          
+
+ data_appendix      |              
+
+ dataset            | MIND_small   
+
+ dropout            | 0            
+
+ dyn_sample_rate    | 2.0          
+
+ early_stop         | 10           
+
+ emb_size           | 128         
+
+ epoch              | 200          
+
+ eval_batch_size    | 256          
+
+ gpu                | 0            
+
+ k_samples          | 2            
+
+ l2                 | 1e-06        
+
+ lr                 | 0.001        
+
+ main_metric        | NDCG@2       
+
+ num_neg            | 1            
+
+ num_workers        | 0            
+
+ optimizer          | Adam         
+
+ random_seed        | 0            
+
+ save_final_results | 1            
+
+ test_all           | 0            
+
+ topk               | 1,2,3,5,10,20
+
+====================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from eval_data\MIND_small\Readers\CPRReader.pkl
+INFO:root:#params: 39618560
+INFO:root:CPRMF(
+  (u_embeddings): Embedding(16527, 2048)
+  (i_embeddings): Embedding(2818, 2048)
+)
+INFO:root:Load model from ../model/CPRMF/CPRMF__MIND_small__0__lr=0.001__l2=1e-06__emb_size=128__batch_size=2048__dyn_sample_rate=2.0__choose_rate=4.0__k_samples=2.pt
+INFO:root:
+
+Dev  After Training: (HR@1:0.0233,NDCG@1:0.0233,HR@2:0.0387,NDCG@2:0.0330,HR@3:0.0561,NDCG@3:0.0417,HR@5:0.0834,NDCG@5:0.0528,HR@10:0.1564,NDCG@10:0.0760,HR@20:0.2727,NDCG@20:0.1051)
+INFO:root:
+
+Test After Training: (HR@1:0.0258,NDCG@1:0.0258,HR@2:0.0372,NDCG@2:0.0330,HR@3:0.0517,NDCG@3:0.0403,HR@5:0.0808,NDCG@5:0.0519,HR@10:0.1325,NDCG@10:0.0687,HR@20:0.2197,NDCG@20:0.0902)
+INFO:root:Saving top-10 recommendation results to: ../eval_log/CPRMF\CPRMF__MIND_small\rec-CPRMF-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+
+--------------------------------------------- END: 2024-12-30 12:06:31 ---------------------------------------------

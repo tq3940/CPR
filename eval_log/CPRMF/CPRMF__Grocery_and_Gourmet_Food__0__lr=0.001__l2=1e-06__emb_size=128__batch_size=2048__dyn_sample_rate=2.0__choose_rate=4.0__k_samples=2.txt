@@ -1,0 +1,74 @@
+INFO:root:Namespace(model_name='CPRMF', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-30 12:06:17 ---------------------------------------------
+INFO:root:
+
+===========================================
+
+ Arguments          | Values               
+
+===========================================
+
+ batch_size         | 2048                
+
+ choose_rate        | 4.0                 
+
+ data_appendix      |                     
+
+ dataset            | Grocery_and_Gourm...
+
+ dropout            | 0                   
+
+ dyn_sample_rate    | 2.0                 
+
+ early_stop         | 10                  
+
+ emb_size           | 128                
+
+ epoch              | 200                 
+
+ eval_batch_size    | 256                 
+
+ gpu                | 0                   
+
+ k_samples          | 2                   
+
+ l2                 | 1e-06               
+
+ lr                 | 0.001               
+
+ main_metric        | NDCG@2              
+
+ num_neg            | 1                   
+
+ num_workers        | 0                   
+
+ optimizer          | Adam                
+
+ random_seed        | 0                   
+
+ save_final_results | 1                   
+
+ test_all           | 0                   
+
+ topk               | 1,2,3,5,10,20       
+
+===========================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from eval_data\Grocery_and_Gourmet_Food\Readers\CPRReader.pkl
+INFO:root:#params: 47915008
+INFO:root:CPRMF(
+  (u_embeddings): Embedding(14682, 2048)
+  (i_embeddings): Embedding(8714, 2048)
+)
+INFO:root:Load model from ../model/CPRMF/CPRMF__Grocery_and_Gourmet_Food__0__lr=0.001__l2=1e-06__emb_size=128__batch_size=2048__dyn_sample_rate=2.0__choose_rate=4.0__k_samples=2.pt
+INFO:root:
+
+Dev  After Training: (HR@1:0.2105,NDCG@1:0.2105,HR@2:0.3040,NDCG@2:0.2695,HR@3:0.3580,NDCG@3:0.2965,HR@5:0.4278,NDCG@5:0.3252,HR@10:0.5214,NDCG@10:0.3555,HR@20:0.6253,NDCG@20:0.3818)
+INFO:root:
+
+Test After Training: (HR@1:0.0919,NDCG@1:0.0919,HR@2:0.1412,NDCG@2:0.1230,HR@3:0.1808,NDCG@3:0.1428,HR@5:0.2450,NDCG@5:0.1691,HR@10:0.3486,NDCG@10:0.2025,HR@20:0.4853,NDCG@20:0.2368)
+INFO:root:Saving top-10 recommendation results to: ../eval_log/CPRMF\CPRMF__Grocery_and_Gourmet_Food\rec-CPRMF-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+
+--------------------------------------------- END: 2024-12-30 12:06:26 ---------------------------------------------

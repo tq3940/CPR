@@ -1,0 +1,45 @@
+INFO:root:Namespace(model_name='BPRMF', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-30 11:58:05 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ batch_size         | 2048                
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 128                 
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ l2                 | 1e-06               
+ lr                 | 0.001               
+ main_metric        | NDCG@2              
+ num_neg            | 1                   
+ num_workers        | 0                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 1,2,3,5,10,20       
+===========================================
+INFO:root:Device: cpu
+INFO:root:Reading data from "eval_data", dataset = "Grocery_and_Gourmet_Food" 
+INFO:root:Counting dataset statistics...
+INFO:root:"# user": 14681, "# item": 8713, "# entry": 141601
+INFO:root:Save corpus to eval_data\Grocery_and_Gourmet_Food\Readers\BaseReader.pkl
+INFO:root:#params: 2994688
+INFO:root:BPRMF(
+  (u_embeddings): Embedding(14682, 128)
+  (i_embeddings): Embedding(8714, 128)
+)
+INFO:root:Load model from ../model/BPRMF/BPRMF__Grocery_and_Gourmet_Food__0__lr=0.001__l2=1e-06__emb_size=128__batch_size=2048.pt
+INFO:root:
+Dev  After Training: (HR@1:0.1905,NDCG@1:0.1905,HR@2:0.2812,NDCG@2:0.2477,HR@3:0.3444,NDCG@3:0.2793,HR@5:0.4272,NDCG@5:0.3134,HR@10:0.5236,NDCG@10:0.3448,HR@20:0.6241,NDCG@20:0.3702)
+INFO:root:
+Test After Training: (HR@1:0.0664,NDCG@1:0.0664,HR@2:0.1058,NDCG@2:0.0913,HR@3:0.1428,NDCG@3:0.1098,HR@5:0.2100,NDCG@5:0.1373,HR@10:0.3156,NDCG@10:0.1713,HR@20:0.4463,NDCG@20:0.2042)
+INFO:root:Saving top-10 recommendation results to: ../eval_log/BPRMF\BPRMF__Grocery_and_Gourmet_Food\rec-BPRMF-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2024-12-30 11:58:09 ---------------------------------------------

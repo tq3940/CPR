@@ -1,0 +1,85 @@
+INFO:root:Namespace(model_name='ComiRec', model_mode='CPR')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-29 23:27:03 ---------------------------------------------
+INFO:root:
+====================================
+ Arguments          | Values        
+====================================
+ K                  | 4            
+ add_pos            | 1            
+ attn_size          | 8            
+ batch_size         | 2048         
+ choose_rate        | 4.0          
+ data_appendix      |              
+ dataset            | MIND_small   
+ dropout            | 0            
+ dyn_sample_rate    | 2.0          
+ early_stop         | 10           
+ emb_size           | 128         
+ epoch              | 200          
+ eval_batch_size    | 256          
+ gpu                | 0            
+ history_max        | 20           
+ k_samples          | 2            
+ l2                 | 1e-06        
+ lr                 | 0.001        
+ main_metric        | NDCG@2       
+ num_neg            | 1            
+ num_workers        | 12           
+ optimizer          | Adam         
+ random_seed        | 0            
+ save_final_results | 1            
+ test_all           | 0            
+ topk               | 1,2,3,5,10,20
+====================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MIND_small/Readers/CPRSeqReader.pkl
+INFO:root:#params: 5830700
+INFO:root:ComiRecCPR(
+  (i_embeddings): Embedding(2818, 2048)
+  (p_embeddings): Embedding(21, 2048)
+  (W1): Linear(in_features=2048, out_features=8, bias=True)
+  (W2): Linear(in_features=8, out_features=4, bias=True)
+)
+INFO:root:Test Before Training: (HR@1:0.0255,NDCG@1:0.0255,HR@2:0.0402,NDCG@2:0.0348,HR@3:0.0539,NDCG@3:0.0416,HR@5:0.0824,NDCG@5:0.0533,HR@10:0.1353,NDCG@10:0.0699,HR@20:0.2333,NDCG@20:0.0943)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.6910086 [11.7 s]	dev=(HR@2:0.0509,NDCG@2:0.0446) test=(HR@1:0.0608,NDCG@1:0.0608) [0.9 s] *
+INFO:root:Epoch 2     loss=0.6308174 [11.4 s]	dev=(HR@2:0.0804,NDCG@2:0.0663) [0.5 s] *
+INFO:root:Epoch 3     loss=0.4456359 [11.2 s]	dev=(HR@2:0.0997,NDCG@2:0.0833) [0.7 s] *
+INFO:root:Epoch 4     loss=0.3471331 [11.7 s]	dev=(HR@2:0.1117,NDCG@2:0.0935) [0.5 s] *
+INFO:root:Epoch 5     loss=0.2955440 [11.2 s]	dev=(HR@2:0.1055,NDCG@2:0.0887) [0.5 s]
+INFO:root:Epoch 6     loss=0.2589694 [12.5 s]	dev=(HR@2:0.1052,NDCG@2:0.0904) [0.7 s]
+INFO:root:Epoch 7     loss=0.2340961 [12.1 s]	dev=(HR@2:0.1080,NDCG@2:0.0920) [0.6 s]
+INFO:root:Epoch 8     loss=0.2195350 [11.4 s]	dev=(HR@2:0.1301,NDCG@2:0.1107) [0.6 s] *
+INFO:root:Epoch 9     loss=0.2041300 [12.5 s]	dev=(HR@2:0.1276,NDCG@2:0.1076) [0.5 s]
+INFO:root:Epoch 10    loss=0.1926319 [11.1 s]	dev=(HR@2:0.1288,NDCG@2:0.1087) [0.6 s]
+INFO:root:Epoch 11    loss=0.1827198 [11.4 s]	dev=(HR@2:0.1230,NDCG@2:0.1052) [0.6 s]
+INFO:root:Epoch 12    loss=0.1751333 [11.4 s]	dev=(HR@2:0.1239,NDCG@2:0.1059) [0.5 s]
+INFO:root:Epoch 13    loss=0.1665155 [11.3 s]	dev=(HR@2:0.1252,NDCG@2:0.1067) [0.5 s]
+INFO:root:Epoch 14    loss=0.1571540 [11.0 s]	dev=(HR@2:0.1285,NDCG@2:0.1105) [0.5 s]
+INFO:root:Epoch 15    loss=0.1511333 [11.6 s]	dev=(HR@2:0.1334,NDCG@2:0.1144) [0.7 s] *
+INFO:root:Epoch 16    loss=0.1447234 [12.6 s]	dev=(HR@2:0.1307,NDCG@2:0.1118) [0.7 s]
+INFO:root:Epoch 17    loss=0.1391221 [12.1 s]	dev=(HR@2:0.1264,NDCG@2:0.1089) [0.6 s]
+INFO:root:Epoch 18    loss=0.1326794 [11.6 s]	dev=(HR@2:0.1347,NDCG@2:0.1149) [0.7 s] *
+INFO:root:Epoch 19    loss=0.1268141 [12.0 s]	dev=(HR@2:0.1337,NDCG@2:0.1145) [0.7 s]
+INFO:root:Epoch 20    loss=0.1223432 [12.0 s]	dev=(HR@2:0.1206,NDCG@2:0.1031) [0.7 s]
+INFO:root:Epoch 21    loss=0.1213014 [11.5 s]	dev=(HR@2:0.1236,NDCG@2:0.1048) test=(HR@1:0.0520,NDCG@1:0.0520) [1.0 s]
+INFO:root:Epoch 22    loss=0.1160855 [11.4 s]	dev=(HR@2:0.1190,NDCG@2:0.0999) [0.6 s]
+INFO:root:Epoch 23    loss=0.1130836 [11.4 s]	dev=(HR@2:0.1178,NDCG@2:0.0991) [0.5 s]
+INFO:root:Epoch 24    loss=0.1082105 [11.9 s]	dev=(HR@2:0.1126,NDCG@2:0.0947) [0.7 s]
+INFO:root:Epoch 25    loss=0.1058418 [11.4 s]	dev=(HR@2:0.1132,NDCG@2:0.0953) [0.6 s]
+INFO:root:Epoch 26    loss=0.1035630 [11.3 s]	dev=(HR@2:0.1129,NDCG@2:0.0971) [0.5 s]
+INFO:root:Epoch 27    loss=0.1008925 [11.2 s]	dev=(HR@2:0.1178,NDCG@2:0.1014) [0.5 s]
+INFO:root:Early stop at 27 based on dev result.
+INFO:root:
+Best Iter(dev)=   18	 dev=(HR@2:0.1347,NDCG@2:0.1149) [331.0 s] 
+INFO:root:Load model from ../model/ComiRecCPR/ComiRecCPR__MIND_small__0__lr=0.001__l2=1e-06__emb_size=128__attn_size=8__K=4__dyn_sample_rate=2.0__choose_rate=4.0__k_samples=2.pt
+INFO:root:
+Dev  After Training: (HR@1:0.0810,NDCG@1:0.0810,HR@2:0.1347,NDCG@2:0.1149,HR@3:0.1663,NDCG@3:0.1306,HR@5:0.2319,NDCG@5:0.1576,HR@10:0.3224,NDCG@10:0.1869,HR@20:0.4862,NDCG@20:0.2278)
+INFO:root:
+Test After Training: (HR@1:0.0588,NDCG@1:0.0588,HR@2:0.0961,NDCG@2:0.0823,HR@3:0.1245,NDCG@3:0.0965,HR@5:0.1833,NDCG@5:0.1205,HR@10:0.2775,NDCG@10:0.1506,HR@20:0.4392,NDCG@20:0.1915)
+INFO:root:Saving top-100 recommendation results to: ../log/ComiRecCPR/ComiRecCPR__MIND_small__0__lr=0/rec-ComiRecCPR-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/ComiRecCPR/ComiRecCPR__MIND_small__0__lr=0/rec-ComiRecCPR-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2024-12-29 23:32:39 ---------------------------------------------

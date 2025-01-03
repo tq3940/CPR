@@ -1,0 +1,52 @@
+INFO:root:Namespace(model_name='ComiRec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-30 12:01:08 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ K                  | 4                   
+ add_pos            | 1                   
+ attn_size          | 8                   
+ batch_size         | 2048                
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 128                 
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 20                  
+ l2                 | 1e-06               
+ lr                 | 0.001               
+ main_metric        | NDCG@2              
+ num_neg            | 1                   
+ num_workers        | 0                   
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 1,2,3,5,10,20       
+===========================================
+INFO:root:Device: cpu
+INFO:root:Reading data from "eval_data", dataset = "Grocery_and_Gourmet_Food" 
+INFO:root:Counting dataset statistics...
+INFO:root:"# user": 14681, "# item": 8713, "# entry": 141601
+INFO:root:Appending history info...
+INFO:root:Save corpus to eval_data\Grocery_and_Gourmet_Food\Readers\SeqReader.pkl
+INFO:root:#params: 1119148
+INFO:root:ComiRec(
+  (i_embeddings): Embedding(8714, 128)
+  (p_embeddings): Embedding(21, 128)
+  (W1): Linear(in_features=128, out_features=8, bias=True)
+  (W2): Linear(in_features=8, out_features=4, bias=True)
+)
+INFO:root:Load model from ../model/ComiRec/ComiRec__Grocery_and_Gourmet_Food__0__lr=0.001__l2=1e-06__emb_size=128__attn_size=8__K=4.pt
+INFO:root:
+Dev  After Training: (HR@1:0.2049,NDCG@1:0.2049,HR@2:0.3000,NDCG@2:0.2649,HR@3:0.3620,NDCG@3:0.2959,HR@5:0.4403,NDCG@5:0.3282,HR@10:0.5391,NDCG@10:0.3603,HR@20:0.6480,NDCG@20:0.3877)
+INFO:root:
+Test After Training: (HR@1:0.0579,NDCG@1:0.0579,HR@2:0.0982,NDCG@2:0.0833,HR@3:0.1396,NDCG@3:0.1040,HR@5:0.2013,NDCG@5:0.1293,HR@10:0.3015,NDCG@10:0.1616,HR@20:0.4306,NDCG@20:0.1940)
+INFO:root:Saving top-10 recommendation results to: ../eval_log/ComiRec\ComiRec__Grocery_and_Gourmet_Food\rec-ComiRec-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2024-12-30 12:01:14 ---------------------------------------------

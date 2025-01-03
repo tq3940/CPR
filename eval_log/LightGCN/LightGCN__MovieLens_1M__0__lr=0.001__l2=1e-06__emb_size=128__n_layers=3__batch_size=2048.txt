@@ -1,0 +1,47 @@
+INFO:root:Namespace(model_name='LightGCN', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-30 12:00:37 ---------------------------------------------
+INFO:root:
+====================================
+ Arguments          | Values        
+====================================
+ batch_size         | 2048         
+ data_appendix      |              
+ dataset            | MovieLens_1M 
+ dropout            | 0            
+ early_stop         | 10           
+ emb_size           | 128          
+ epoch              | 200          
+ eval_batch_size    | 256          
+ gpu                | 0            
+ l2                 | 1e-06        
+ lr                 | 0.001        
+ main_metric        | NDCG@2       
+ n_layers           | 3            
+ num_neg            | 1            
+ num_workers        | 0            
+ optimizer          | Adam         
+ random_seed        | 0            
+ save_final_results | 1            
+ test_all           | 0            
+ topk               | 1,2,3,5,10,20
+====================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from eval_data\MovieLens_1M\Readers\BaseReader.pkl
+INFO:root:#params: 1172352
+INFO:root:LightGCN(
+  (encoder): LGCNEncoder(
+    (embedding_dict): ParameterDict(
+        (item_emb): Parameter containing: [torch.FloatTensor of size 3126x128]
+        (user_emb): Parameter containing: [torch.FloatTensor of size 6033x128]
+    )
+  )
+)
+INFO:root:Load model from ../model/LightGCN/LightGCN__MovieLens_1M__0__lr=0.001__l2=1e-06__emb_size=128__n_layers=3__batch_size=2048.pt
+INFO:root:
+Dev  After Training: (HR@1:0.1347,NDCG@1:0.1347,HR@2:0.2338,NDCG@2:0.1972,HR@3:0.2990,NDCG@3:0.2298,HR@5:0.4067,NDCG@5:0.2742,HR@10:0.5792,NDCG@10:0.3296,HR@20:0.7717,NDCG@20:0.3782)
+INFO:root:
+Test After Training: (HR@1:0.0177,NDCG@1:0.0177,HR@2:0.0414,NDCG@2:0.0326,HR@3:0.0686,NDCG@3:0.0462,HR@5:0.1135,NDCG@5:0.0647,HR@10:0.2376,NDCG@10:0.1043,HR@20:0.4764,NDCG@20:0.1646)
+INFO:root:Saving top-10 recommendation results to: ../eval_log/LightGCN\LightGCN__MovieLens_1M\rec-LightGCN-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2024-12-30 12:00:57 ---------------------------------------------

@@ -1,0 +1,80 @@
+INFO:root:Namespace(model_name='LightGCN', model_mode='CPR')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-30 12:07:43 ---------------------------------------------
+INFO:root:
+
+====================================
+
+ Arguments          | Values        
+
+====================================
+
+ batch_size         | 2048         
+
+ choose_rate        | 4.0          
+
+ data_appendix      |              
+
+ dataset            | MovieLens_1M 
+
+ dropout            | 0            
+
+ dyn_sample_rate    | 2.0          
+
+ early_stop         | 10           
+
+ emb_size           | 128         
+
+ epoch              | 200          
+
+ eval_batch_size    | 256          
+
+ gpu                | 0            
+
+ k_samples          | 2            
+
+ l2                 | 1e-06        
+
+ lr                 | 0.001        
+
+ main_metric        | NDCG@2       
+
+ n_layers           | 3            
+
+ num_neg            | 1            
+
+ num_workers        | 0            
+
+ optimizer          | Adam         
+
+ random_seed        | 0            
+
+ save_final_results | 1            
+
+ test_all           | 0            
+
+ topk               | 1,2,3,5,10,20
+
+====================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from eval_data\MovieLens_1M\Readers\CPRReader.pkl
+INFO:root:#params: 18757632
+INFO:root:LightGCNCPR(
+  (encoder): LGCNEncoder(
+    (embedding_dict): ParameterDict(
+        (item_emb): Parameter containing: [torch.FloatTensor of size 3126x2048]
+        (user_emb): Parameter containing: [torch.FloatTensor of size 6033x2048]
+    )
+  )
+)
+INFO:root:Load model from ../model/LightGCNCPR/LightGCNCPR__MovieLens_1M__0__lr=0.001__l2=1e-06__emb_size=128__n_layers=3__batch_size=2048__dyn_sample_rate=2.0__choose_rate=4.0__k_samples=2.pt
+INFO:root:
+
+Dev  After Training: (HR@1:0.1112,NDCG@1:0.1112,HR@2:0.1799,NDCG@2:0.1546,HR@3:0.2303,NDCG@3:0.1798,HR@5:0.3142,NDCG@5:0.2143,HR@10:0.4563,NDCG@10:0.2600,HR@20:0.6140,NDCG@20:0.2999)
+INFO:root:
+
+Test After Training: (HR@1:0.0414,NDCG@1:0.0414,HR@2:0.0851,NDCG@2:0.0690,HR@3:0.1407,NDCG@3:0.0967,HR@5:0.2258,NDCG@5:0.1316,HR@10:0.3676,NDCG@10:0.1775,HR@20:0.5461,NDCG@20:0.2229)
+INFO:root:Saving top-10 recommendation results to: ../eval_log/LightGCNCPR\LightGCNCPR__MovieLens_1M\rec-LightGCNCPR-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+
+--------------------------------------------- END: 2024-12-30 12:08:16 ---------------------------------------------

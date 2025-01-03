@@ -1,0 +1,80 @@
+INFO:root:Namespace(model_name='LightGCN', model_mode='CPR')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-30 12:06:39 ---------------------------------------------
+INFO:root:
+
+===========================================
+
+ Arguments          | Values               
+
+===========================================
+
+ batch_size         | 2048                
+
+ choose_rate        | 4.0                 
+
+ data_appendix      |                     
+
+ dataset            | Grocery_and_Gourm...
+
+ dropout            | 0                   
+
+ dyn_sample_rate    | 2.0                 
+
+ early_stop         | 10                  
+
+ emb_size           | 128                
+
+ epoch              | 200                 
+
+ eval_batch_size    | 256                 
+
+ gpu                | 0                   
+
+ k_samples          | 2                   
+
+ l2                 | 1e-06               
+
+ lr                 | 0.001               
+
+ main_metric        | NDCG@2              
+
+ n_layers           | 3                   
+
+ num_neg            | 1                   
+
+ num_workers        | 0                   
+
+ optimizer          | Adam                
+
+ random_seed        | 0                   
+
+ save_final_results | 1                   
+
+ test_all           | 0                   
+
+ topk               | 1,2,3,5,10,20       
+
+===========================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from eval_data\Grocery_and_Gourmet_Food\Readers\CPRReader.pkl
+INFO:root:#params: 47915008
+INFO:root:LightGCNCPR(
+  (encoder): LGCNEncoder(
+    (embedding_dict): ParameterDict(
+        (item_emb): Parameter containing: [torch.FloatTensor of size 8714x2048]
+        (user_emb): Parameter containing: [torch.FloatTensor of size 14682x2048]
+    )
+  )
+)
+INFO:root:Load model from ../model/LightGCNCPR/LightGCNCPR__Grocery_and_Gourmet_Food__0__lr=0.001__l2=1e-06__emb_size=128__n_layers=3__batch_size=2048__dyn_sample_rate=2.0__choose_rate=4.0__k_samples=2.pt
+INFO:root:
+
+Dev  After Training: (HR@1:0.2142,NDCG@1:0.2142,HR@2:0.3145,NDCG@2:0.2775,HR@3:0.3866,NDCG@3:0.3136,HR@5:0.4709,NDCG@5:0.3482,HR@10:0.5738,NDCG@10:0.3818,HR@20:0.6745,NDCG@20:0.4073)
+INFO:root:
+
+Test After Training: (HR@1:0.0780,NDCG@1:0.0780,HR@2:0.1257,NDCG@2:0.1081,HR@3:0.1706,NDCG@3:0.1306,HR@5:0.2510,NDCG@5:0.1635,HR@10:0.3747,NDCG@10:0.2035,HR@20:0.5278,NDCG@20:0.2420)
+INFO:root:Saving top-10 recommendation results to: ../eval_log/LightGCNCPR\LightGCNCPR__Grocery_and_Gourmet_Food\rec-LightGCNCPR-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+
+--------------------------------------------- END: 2024-12-30 12:07:21 ---------------------------------------------

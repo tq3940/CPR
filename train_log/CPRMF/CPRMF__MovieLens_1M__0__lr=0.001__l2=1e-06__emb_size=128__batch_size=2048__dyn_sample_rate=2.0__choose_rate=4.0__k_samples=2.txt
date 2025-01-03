@@ -1,0 +1,63 @@
+INFO:root:Namespace(model_name='CPRMF', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-29 23:00:35 ---------------------------------------------
+INFO:root:
+====================================
+ Arguments          | Values        
+====================================
+ batch_size         | 2048         
+ choose_rate        | 4.0          
+ data_appendix      |              
+ dataset            | MovieLens_1M 
+ dropout            | 0            
+ dyn_sample_rate    | 2.0          
+ early_stop         | 10           
+ emb_size           | 128         
+ epoch              | 200          
+ eval_batch_size    | 256          
+ gpu                | 0            
+ k_samples          | 2            
+ l2                 | 1e-06        
+ lr                 | 0.001        
+ main_metric        | NDCG@2       
+ num_neg            | 1            
+ num_workers        | 12           
+ optimizer          | Adam         
+ random_seed        | 0            
+ save_final_results | 1            
+ test_all           | 0            
+ topk               | 1,2,3,5,10,20
+====================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MovieLens_1M/Readers/CPRReader.pkl
+INFO:root:#params: 18757632
+INFO:root:CPRMF(
+  (u_embeddings): Embedding(6033, 2048)
+  (i_embeddings): Embedding(3126, 2048)
+)
+INFO:root:Test Before Training: (HR@1:0.0118,NDCG@1:0.0118,HR@2:0.0230,NDCG@2:0.0189,HR@3:0.0355,NDCG@3:0.0251,HR@5:0.0560,NDCG@5:0.0335,HR@10:0.1030,NDCG@10:0.0485,HR@20:0.1945,NDCG@20:0.0713)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.6858360 [28.5 s]	dev=(HR@2:0.1042,NDCG@2:0.0878) [0.4 s] *
+INFO:root:Epoch 2     loss=0.5338542 [29.7 s]	dev=(HR@2:0.1187,NDCG@2:0.1022) [0.4 s] *
+INFO:root:Epoch 3     loss=0.2987890 [30.2 s]	dev=(HR@2:0.1128,NDCG@2:0.0957) [0.4 s]
+INFO:root:Epoch 4     loss=0.1819350 [24.0 s]	dev=(HR@2:0.1058,NDCG@2:0.0930) [0.4 s]
+INFO:root:Epoch 5     loss=0.1248962 [24.9 s]	dev=(HR@2:0.0988,NDCG@2:0.0858) [0.5 s]
+INFO:root:Epoch 6     loss=0.0914936 [32.0 s]	dev=(HR@2:0.0976,NDCG@2:0.0845) [0.4 s]
+INFO:root:Epoch 7     loss=0.0711982 [25.5 s]	dev=(HR@2:0.0952,NDCG@2:0.0814) [0.5 s]
+INFO:root:Epoch 8     loss=0.0572296 [26.6 s]	dev=(HR@2:0.0984,NDCG@2:0.0837) [0.4 s]
+INFO:root:Epoch 9     loss=0.0479711 [27.5 s]	dev=(HR@2:0.0956,NDCG@2:0.0824) [0.5 s]
+INFO:root:Epoch 10    loss=0.0416078 [27.5 s]	dev=(HR@2:0.0976,NDCG@2:0.0840) [0.4 s]
+INFO:root:Epoch 11    loss=0.0368970 [25.3 s]	dev=(HR@2:0.0964,NDCG@2:0.0830) [0.5 s]
+INFO:root:Early stop at 11 based on dev result.
+INFO:root:
+Best Iter(dev)=    2	 dev=(HR@2:0.1187,NDCG@2:0.1022) [306.9 s] 
+INFO:root:Load model from ../model/CPRMF/CPRMF__MovieLens_1M__0__lr=0.001__l2=1e-06__emb_size=128__batch_size=2048__dyn_sample_rate=2.0__choose_rate=4.0__k_samples=2.pt
+INFO:root:
+Dev  After Training: (HR@1:0.0742,NDCG@1:0.0742,HR@2:0.1187,NDCG@2:0.1022,HR@3:0.1514,NDCG@3:0.1186,HR@5:0.2123,NDCG@5:0.1434,HR@10:0.3177,NDCG@10:0.1774,HR@20:0.4516,NDCG@20:0.2112)
+INFO:root:
+Test After Training: (HR@1:0.0546,NDCG@1:0.0546,HR@2:0.1047,NDCG@2:0.0862,HR@3:0.1427,NDCG@3:0.1052,HR@5:0.2039,NDCG@5:0.1303,HR@10:0.3065,NDCG@10:0.1634,HR@20:0.4224,NDCG@20:0.1925)
+INFO:root:Saving top-100 recommendation results to: ../log/CPRMF/CPRMF__MovieLens_1M__0__lr=0/rec-CPRMF-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/CPRMF/CPRMF__MovieLens_1M__0__lr=0/rec-CPRMF-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2024-12-29 23:05:47 ---------------------------------------------

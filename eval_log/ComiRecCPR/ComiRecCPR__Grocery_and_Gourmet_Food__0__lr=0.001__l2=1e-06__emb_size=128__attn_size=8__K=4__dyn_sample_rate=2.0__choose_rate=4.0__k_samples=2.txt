@@ -1,0 +1,84 @@
+INFO:root:Namespace(model_name='ComiRec', model_mode='CPR')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-30 12:10:51 ---------------------------------------------
+INFO:root:
+
+===========================================
+
+ Arguments          | Values               
+
+===========================================
+
+ K                  | 4                   
+
+ add_pos            | 1                   
+
+ attn_size          | 8                   
+
+ batch_size         | 2048                
+
+ choose_rate        | 4.0                 
+
+ data_appendix      |                     
+
+ dataset            | Grocery_and_Gourm...
+
+ dropout            | 0                   
+
+ dyn_sample_rate    | 2.0                 
+
+ early_stop         | 10                  
+
+ emb_size           | 128                
+
+ epoch              | 200                 
+
+ eval_batch_size    | 256                 
+
+ gpu                | 0                   
+
+ history_max        | 20                  
+
+ k_samples          | 2                   
+
+ l2                 | 1e-06               
+
+ lr                 | 0.001               
+
+ main_metric        | NDCG@2              
+
+ num_neg            | 1                   
+
+ num_workers        | 0                   
+
+ optimizer          | Adam                
+
+ random_seed        | 0                   
+
+ save_final_results | 1                   
+
+ test_all           | 0                   
+
+ topk               | 1,2,3,5,10,20       
+
+===========================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from eval_data\Grocery_and_Gourmet_Food\Readers\CPRSeqReader.pkl
+INFO:root:#params: 17905708
+INFO:root:ComiRecCPR(
+  (i_embeddings): Embedding(8714, 2048)
+  (p_embeddings): Embedding(21, 2048)
+  (W1): Linear(in_features=2048, out_features=8, bias=True)
+  (W2): Linear(in_features=8, out_features=4, bias=True)
+)
+INFO:root:Load model from ../model/ComiRecCPR/ComiRecCPR__Grocery_and_Gourmet_Food__0__lr=0.001__l2=1e-06__emb_size=128__attn_size=8__K=4__dyn_sample_rate=2.0__choose_rate=4.0__k_samples=2.pt
+INFO:root:
+
+Dev  After Training: (HR@1:0.2079,NDCG@1:0.2079,HR@2:0.3054,NDCG@2:0.2694,HR@3:0.3676,NDCG@3:0.3005,HR@5:0.4479,NDCG@5:0.3336,HR@10:0.5461,NDCG@10:0.3654,HR@20:0.6530,NDCG@20:0.3923)
+INFO:root:
+
+Test After Training: (HR@1:0.0823,NDCG@1:0.0823,HR@2:0.1354,NDCG@2:0.1158,HR@3:0.1816,NDCG@3:0.1389,HR@5:0.2532,NDCG@5:0.1683,HR@10:0.3604,NDCG@10:0.2028,HR@20:0.5010,NDCG@20:0.2382)
+INFO:root:Saving top-10 recommendation results to: ../eval_log/ComiRecCPR\ComiRecCPR__Grocery_and_Gourmet_Food\rec-ComiRecCPR-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+
+--------------------------------------------- END: 2024-12-30 12:11:17 ---------------------------------------------

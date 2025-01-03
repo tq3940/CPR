@@ -1,0 +1,4 @@
+eval_script\evalBPRMF.bat
+eval_script\evalLightGCN.bat
+eval_script\evalComiRec.bat
+eval_script\evalNewCPR.bat

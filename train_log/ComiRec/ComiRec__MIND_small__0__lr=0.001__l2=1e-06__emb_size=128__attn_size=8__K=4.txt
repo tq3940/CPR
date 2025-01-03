@@ -1,0 +1,167 @@
+INFO:root:Namespace(model_name='ComiRec', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-29 21:38:51 ---------------------------------------------
+INFO:root:
+====================================
+ Arguments          | Values        
+====================================
+ K                  | 4            
+ add_pos            | 1            
+ attn_size          | 8            
+ batch_size         | 2048         
+ data_appendix      |              
+ dataset            | MIND_small   
+ dropout            | 0            
+ early_stop         | 10           
+ emb_size           | 128          
+ epoch              | 200          
+ eval_batch_size    | 256          
+ gpu                | 0            
+ history_max        | 20           
+ l2                 | 1e-06        
+ lr                 | 0.001        
+ main_metric        | NDCG@2       
+ num_neg            | 1            
+ num_workers        | 14           
+ optimizer          | Adam         
+ random_seed        | 0            
+ save_final_results | 1            
+ test_all           | 0            
+ topk               | 1,2,3,5,10,20
+====================================
+INFO:root:Device: cuda
+INFO:root:Reading data from "data", dataset = "MIND_small" 
+INFO:root:Counting dataset statistics...
+INFO:root:"# user": 16526, "# item": 2817, "# entry": 163861
+INFO:root:Appending history info...
+INFO:root:Save corpus to data/MIND_small/Readers/SeqReader.pkl
+INFO:root:#params: 364460
+INFO:root:ComiRec(
+  (i_embeddings): Embedding(2818, 128)
+  (p_embeddings): Embedding(21, 128)
+  (W1): Linear(in_features=128, out_features=8, bias=True)
+  (W2): Linear(in_features=8, out_features=4, bias=True)
+)
+INFO:root:Test Before Training: (HR@1:0.0206,NDCG@1:0.0206,HR@2:0.0333,NDCG@2:0.0286,HR@3:0.0431,NDCG@3:0.0335,HR@5:0.0569,NDCG@5:0.0393,HR@10:0.1020,NDCG@10:0.0537,HR@20:0.2010,NDCG@20:0.0785)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.6560601 [3.1 s]	dev=(HR@2:0.0098,NDCG@2:0.0078) test=(HR@1:0.0078,NDCG@1:0.0078) [1.0 s] *
+INFO:root:Epoch 2     loss=0.4373338 [2.7 s]	dev=(HR@2:0.0126,NDCG@2:0.0108) [1.5 s] *
+INFO:root:Epoch 3     loss=0.3706350 [3.4 s]	dev=(HR@2:0.0120,NDCG@2:0.0095) [0.9 s]
+INFO:root:Epoch 4     loss=0.3532741 [3.0 s]	dev=(HR@2:0.0160,NDCG@2:0.0124) [0.6 s] *
+INFO:root:Epoch 5     loss=0.3343717 [2.6 s]	dev=(HR@2:0.0160,NDCG@2:0.0128) [0.7 s] *
+INFO:root:Epoch 6     loss=0.3181779 [2.7 s]	dev=(HR@2:0.0156,NDCG@2:0.0121) [0.7 s]
+INFO:root:Epoch 7     loss=0.3017983 [2.7 s]	dev=(HR@2:0.0166,NDCG@2:0.0127) [0.6 s]
+INFO:root:Epoch 8     loss=0.2874833 [2.7 s]	dev=(HR@2:0.0190,NDCG@2:0.0145) [0.7 s] *
+INFO:root:Epoch 9     loss=0.2777453 [2.7 s]	dev=(HR@2:0.0196,NDCG@2:0.0154) [0.7 s] *
+INFO:root:Epoch 10    loss=0.2694388 [2.5 s]	dev=(HR@2:0.0199,NDCG@2:0.0148) [0.6 s]
+INFO:root:Epoch 11    loss=0.2592624 [2.6 s]	dev=(HR@2:0.0175,NDCG@2:0.0140) [0.6 s]
+INFO:root:Epoch 12    loss=0.2520749 [2.5 s]	dev=(HR@2:0.0218,NDCG@2:0.0168) [0.6 s] *
+INFO:root:Epoch 13    loss=0.2479990 [2.4 s]	dev=(HR@2:0.0273,NDCG@2:0.0211) [0.7 s] *
+INFO:root:Epoch 14    loss=0.2409330 [2.6 s]	dev=(HR@2:0.0294,NDCG@2:0.0222) [0.7 s] *
+INFO:root:Epoch 15    loss=0.2348588 [2.6 s]	dev=(HR@2:0.0319,NDCG@2:0.0249) [0.6 s] *
+INFO:root:Epoch 16    loss=0.2321209 [2.6 s]	dev=(HR@2:0.0365,NDCG@2:0.0287) [0.7 s] *
+INFO:root:Epoch 17    loss=0.2257975 [2.6 s]	dev=(HR@2:0.0393,NDCG@2:0.0301) [0.7 s] *
+INFO:root:Epoch 18    loss=0.2198662 [2.6 s]	dev=(HR@2:0.0436,NDCG@2:0.0337) [0.6 s] *
+INFO:root:Epoch 19    loss=0.2174048 [2.6 s]	dev=(HR@2:0.0494,NDCG@2:0.0390) [0.7 s] *
+INFO:root:Epoch 20    loss=0.2129029 [2.6 s]	dev=(HR@2:0.0515,NDCG@2:0.0402) [0.7 s] *
+INFO:root:Epoch 21    loss=0.2098697 [2.6 s]	dev=(HR@2:0.0546,NDCG@2:0.0424) test=(HR@1:0.0353,NDCG@1:0.0353) [1.2 s] *
+INFO:root:Epoch 22    loss=0.2058432 [2.5 s]	dev=(HR@2:0.0607,NDCG@2:0.0474) [0.7 s] *
+INFO:root:Epoch 23    loss=0.2032462 [2.5 s]	dev=(HR@2:0.0666,NDCG@2:0.0516) [0.6 s] *
+INFO:root:Epoch 24    loss=0.1996189 [2.6 s]	dev=(HR@2:0.0595,NDCG@2:0.0472) [0.7 s]
+INFO:root:Epoch 25    loss=0.1960338 [2.7 s]	dev=(HR@2:0.0586,NDCG@2:0.0461) [0.6 s]
+INFO:root:Epoch 26    loss=0.1936996 [2.5 s]	dev=(HR@2:0.0610,NDCG@2:0.0473) [0.7 s]
+INFO:root:Epoch 27    loss=0.1913005 [2.6 s]	dev=(HR@2:0.0663,NDCG@2:0.0524) [0.6 s] *
+INFO:root:Epoch 28    loss=0.1894088 [2.5 s]	dev=(HR@2:0.0693,NDCG@2:0.0545) [0.7 s] *
+INFO:root:Epoch 29    loss=0.1869483 [2.6 s]	dev=(HR@2:0.0727,NDCG@2:0.0579) [0.7 s] *
+INFO:root:Epoch 30    loss=0.1856985 [2.6 s]	dev=(HR@2:0.0755,NDCG@2:0.0598) [0.6 s] *
+INFO:root:Epoch 31    loss=0.1824826 [2.6 s]	dev=(HR@2:0.0773,NDCG@2:0.0617) [0.7 s] *
+INFO:root:Epoch 32    loss=0.1792136 [2.7 s]	dev=(HR@2:0.0742,NDCG@2:0.0588) [0.6 s]
+INFO:root:Epoch 33    loss=0.1785427 [2.5 s]	dev=(HR@2:0.0715,NDCG@2:0.0566) [0.7 s]
+INFO:root:Epoch 34    loss=0.1761963 [2.7 s]	dev=(HR@2:0.0770,NDCG@2:0.0622) [0.7 s] *
+INFO:root:Epoch 35    loss=0.1746903 [2.8 s]	dev=(HR@2:0.0825,NDCG@2:0.0660) [0.6 s] *
+INFO:root:Epoch 36    loss=0.1721278 [2.6 s]	dev=(HR@2:0.0816,NDCG@2:0.0644) [0.7 s]
+INFO:root:Epoch 37    loss=0.1716283 [2.6 s]	dev=(HR@2:0.0911,NDCG@2:0.0721) [0.6 s] *
+INFO:root:Epoch 38    loss=0.1706051 [2.6 s]	dev=(HR@2:0.0893,NDCG@2:0.0710) [0.7 s]
+INFO:root:Epoch 39    loss=0.1681298 [2.6 s]	dev=(HR@2:0.0862,NDCG@2:0.0690) [0.6 s]
+INFO:root:Epoch 40    loss=0.1688826 [2.6 s]	dev=(HR@2:0.0880,NDCG@2:0.0707) [0.6 s]
+INFO:root:Epoch 41    loss=0.1643731 [2.6 s]	dev=(HR@2:0.0923,NDCG@2:0.0741) test=(HR@1:0.0422,NDCG@1:0.0422) [1.2 s] *
+INFO:root:Epoch 42    loss=0.1641538 [2.5 s]	dev=(HR@2:0.0914,NDCG@2:0.0741) [0.6 s]
+INFO:root:Epoch 43    loss=0.1614862 [2.4 s]	dev=(HR@2:0.0929,NDCG@2:0.0749) [0.6 s] *
+INFO:root:Epoch 44    loss=0.1622945 [2.7 s]	dev=(HR@2:0.0880,NDCG@2:0.0718) [0.7 s]
+INFO:root:Epoch 45    loss=0.1588617 [2.6 s]	dev=(HR@2:0.0850,NDCG@2:0.0687) [0.7 s]
+INFO:root:Epoch 46    loss=0.1564466 [2.6 s]	dev=(HR@2:0.0847,NDCG@2:0.0688) [0.7 s]
+INFO:root:Epoch 47    loss=0.1572444 [2.6 s]	dev=(HR@2:0.0865,NDCG@2:0.0705) [0.6 s]
+INFO:root:Epoch 48    loss=0.1574717 [2.5 s]	dev=(HR@2:0.0840,NDCG@2:0.0685) [0.7 s]
+INFO:root:Epoch 49    loss=0.1547888 [2.6 s]	dev=(HR@2:0.0911,NDCG@2:0.0741) [0.6 s]
+INFO:root:Epoch 50    loss=0.1537623 [2.6 s]	dev=(HR@2:0.0988,NDCG@2:0.0804) [0.7 s] *
+INFO:root:Epoch 51    loss=0.1529661 [2.6 s]	dev=(HR@2:0.0972,NDCG@2:0.0787) [0.6 s]
+INFO:root:Epoch 52    loss=0.1516472 [2.6 s]	dev=(HR@2:0.0988,NDCG@2:0.0805) [0.7 s] *
+INFO:root:Epoch 53    loss=0.1490583 [2.6 s]	dev=(HR@2:0.0979,NDCG@2:0.0801) [0.6 s]
+INFO:root:Epoch 54    loss=0.1482330 [2.4 s]	dev=(HR@2:0.0957,NDCG@2:0.0785) [0.7 s]
+INFO:root:Epoch 55    loss=0.1502059 [2.5 s]	dev=(HR@2:0.0979,NDCG@2:0.0811) [0.6 s] *
+INFO:root:Epoch 56    loss=0.1441347 [2.6 s]	dev=(HR@2:0.1015,NDCG@2:0.0836) [0.7 s] *
+INFO:root:Epoch 57    loss=0.1458339 [2.5 s]	dev=(HR@2:0.1037,NDCG@2:0.0853) [0.7 s] *
+INFO:root:Epoch 58    loss=0.1450741 [2.5 s]	dev=(HR@2:0.0994,NDCG@2:0.0816) [0.7 s]
+INFO:root:Epoch 59    loss=0.1446729 [2.5 s]	dev=(HR@2:0.1080,NDCG@2:0.0884) [0.6 s] *
+INFO:root:Epoch 60    loss=0.1416127 [2.7 s]	dev=(HR@2:0.1055,NDCG@2:0.0864) [0.7 s]
+INFO:root:Epoch 61    loss=0.1412289 [2.5 s]	dev=(HR@2:0.1080,NDCG@2:0.0885) test=(HR@1:0.0490,NDCG@1:0.0490) [1.5 s] *
+INFO:root:Epoch 62    loss=0.1399074 [2.6 s]	dev=(HR@2:0.1098,NDCG@2:0.0900) [0.8 s] *
+INFO:root:Epoch 63    loss=0.1394925 [2.4 s]	dev=(HR@2:0.1083,NDCG@2:0.0877) [0.6 s]
+INFO:root:Epoch 64    loss=0.1404052 [2.5 s]	dev=(HR@2:0.1123,NDCG@2:0.0917) [0.7 s] *
+INFO:root:Epoch 65    loss=0.1380695 [2.5 s]	dev=(HR@2:0.1080,NDCG@2:0.0892) [0.6 s]
+INFO:root:Epoch 66    loss=0.1362850 [2.6 s]	dev=(HR@2:0.1049,NDCG@2:0.0861) [0.7 s]
+INFO:root:Epoch 67    loss=0.1358660 [2.5 s]	dev=(HR@2:0.1077,NDCG@2:0.0875) [0.7 s]
+INFO:root:Epoch 68    loss=0.1337545 [2.6 s]	dev=(HR@2:0.1037,NDCG@2:0.0855) [0.7 s]
+INFO:root:Epoch 69    loss=0.1342221 [2.7 s]	dev=(HR@2:0.1046,NDCG@2:0.0867) [0.9 s]
+INFO:root:Epoch 70    loss=0.1356637 [2.5 s]	dev=(HR@2:0.1104,NDCG@2:0.0920) [0.7 s] *
+INFO:root:Epoch 71    loss=0.1318430 [2.6 s]	dev=(HR@2:0.1092,NDCG@2:0.0900) [0.6 s]
+INFO:root:Epoch 72    loss=0.1313434 [2.7 s]	dev=(HR@2:0.1095,NDCG@2:0.0901) [0.6 s]
+INFO:root:Epoch 73    loss=0.1304863 [2.6 s]	dev=(HR@2:0.1021,NDCG@2:0.0840) [0.6 s]
+INFO:root:Epoch 74    loss=0.1308635 [2.6 s]	dev=(HR@2:0.0963,NDCG@2:0.0798) [0.6 s]
+INFO:root:Epoch 75    loss=0.1307218 [2.6 s]	dev=(HR@2:0.1009,NDCG@2:0.0830) [0.6 s]
+INFO:root:Epoch 76    loss=0.1275340 [2.6 s]	dev=(HR@2:0.1067,NDCG@2:0.0882) [0.7 s]
+INFO:root:Epoch 77    loss=0.1260950 [2.6 s]	dev=(HR@2:0.1113,NDCG@2:0.0912) [0.7 s]
+INFO:root:Epoch 78    loss=0.1263190 [2.6 s]	dev=(HR@2:0.1058,NDCG@2:0.0875) [0.6 s]
+INFO:root:Epoch 79    loss=0.1240391 [2.6 s]	dev=(HR@2:0.1101,NDCG@2:0.0921) [0.6 s] *
+INFO:root:Epoch 80    loss=0.1258665 [2.5 s]	dev=(HR@2:0.1080,NDCG@2:0.0909) [0.6 s]
+INFO:root:Epoch 81    loss=0.1246049 [2.5 s]	dev=(HR@2:0.1089,NDCG@2:0.0915) test=(HR@1:0.0461,NDCG@1:0.0461) [1.2 s]
+INFO:root:Epoch 82    loss=0.1243572 [2.6 s]	dev=(HR@2:0.1117,NDCG@2:0.0929) [0.7 s] *
+INFO:root:Epoch 83    loss=0.1231194 [2.5 s]	dev=(HR@2:0.1071,NDCG@2:0.0894) [0.7 s]
+INFO:root:Epoch 84    loss=0.1242511 [2.6 s]	dev=(HR@2:0.1123,NDCG@2:0.0927) [0.7 s]
+INFO:root:Epoch 85    loss=0.1216257 [2.6 s]	dev=(HR@2:0.1147,NDCG@2:0.0945) [0.7 s] *
+INFO:root:Epoch 86    loss=0.1222134 [2.6 s]	dev=(HR@2:0.1147,NDCG@2:0.0938) [0.7 s]
+INFO:root:Epoch 87    loss=0.1200092 [2.6 s]	dev=(HR@2:0.1123,NDCG@2:0.0935) [0.7 s]
+INFO:root:Epoch 88    loss=0.1202890 [2.6 s]	dev=(HR@2:0.1144,NDCG@2:0.0951) [0.6 s] *
+INFO:root:Epoch 89    loss=0.1206639 [2.7 s]	dev=(HR@2:0.1117,NDCG@2:0.0926) [0.7 s]
+INFO:root:Epoch 90    loss=0.1177571 [2.6 s]	dev=(HR@2:0.1132,NDCG@2:0.0942) [0.7 s]
+INFO:root:Epoch 91    loss=0.1168870 [2.5 s]	dev=(HR@2:0.1138,NDCG@2:0.0938) [0.7 s]
+INFO:root:Epoch 92    loss=0.1175396 [2.5 s]	dev=(HR@2:0.1153,NDCG@2:0.0954) [0.7 s] *
+INFO:root:Epoch 93    loss=0.1146969 [2.6 s]	dev=(HR@2:0.1120,NDCG@2:0.0923) [0.6 s]
+INFO:root:Epoch 94    loss=0.1163884 [2.5 s]	dev=(HR@2:0.1089,NDCG@2:0.0899) [0.7 s]
+INFO:root:Epoch 95    loss=0.1159188 [2.7 s]	dev=(HR@2:0.1104,NDCG@2:0.0903) [0.7 s]
+INFO:root:Epoch 96    loss=0.1167565 [2.7 s]	dev=(HR@2:0.1126,NDCG@2:0.0921) [0.7 s]
+INFO:root:Epoch 97    loss=0.1151223 [2.7 s]	dev=(HR@2:0.1117,NDCG@2:0.0924) [0.7 s]
+INFO:root:Epoch 98    loss=0.1149134 [2.6 s]	dev=(HR@2:0.1178,NDCG@2:0.0971) [0.7 s] *
+INFO:root:Epoch 99    loss=0.1135833 [2.7 s]	dev=(HR@2:0.1248,NDCG@2:0.1019) [0.7 s] *
+INFO:root:Epoch 100   loss=0.1122288 [2.5 s]	dev=(HR@2:0.1135,NDCG@2:0.0931) [0.7 s]
+INFO:root:Epoch 101   loss=0.1113576 [2.5 s]	dev=(HR@2:0.1175,NDCG@2:0.0969) test=(HR@1:0.0480,NDCG@1:0.0480) [1.2 s]
+INFO:root:Epoch 102   loss=0.1121674 [2.6 s]	dev=(HR@2:0.1135,NDCG@2:0.0948) [0.6 s]
+INFO:root:Epoch 103   loss=0.1102140 [2.5 s]	dev=(HR@2:0.1160,NDCG@2:0.0967) [0.7 s]
+INFO:root:Epoch 104   loss=0.1095453 [2.5 s]	dev=(HR@2:0.1175,NDCG@2:0.0974) [0.7 s]
+INFO:root:Epoch 105   loss=0.1074695 [2.8 s]	dev=(HR@2:0.1175,NDCG@2:0.0962) [0.7 s]
+INFO:root:Epoch 106   loss=0.1098503 [2.5 s]	dev=(HR@2:0.1160,NDCG@2:0.0955) [0.6 s]
+INFO:root:Epoch 107   loss=0.1077896 [2.6 s]	dev=(HR@2:0.1160,NDCG@2:0.0955) [0.7 s]
+INFO:root:Epoch 108   loss=0.1070417 [2.6 s]	dev=(HR@2:0.1202,NDCG@2:0.0979) [0.7 s]
+INFO:root:Early stop at 108 based on dev result.
+INFO:root:
+Best Iter(dev)=   99	 dev=(HR@2:0.1248,NDCG@2:0.1019) [358.0 s] 
+INFO:root:Load model from ../model/ComiRec/ComiRec__MIND_small__0__lr=0.001__l2=1e-06__emb_size=128__attn_size=8__K=4.pt
+INFO:root:
+Dev  After Training: (HR@1:0.0626,NDCG@1:0.0626,HR@2:0.1248,NDCG@2:0.1019,HR@3:0.1739,NDCG@3:0.1264,HR@5:0.2515,NDCG@5:0.1583,HR@10:0.3721,NDCG@10:0.1971,HR@20:0.5862,NDCG@20:0.2507)
+INFO:root:
+Test After Training: (HR@1:0.0451,NDCG@1:0.0451,HR@2:0.0961,NDCG@2:0.0773,HR@3:0.1353,NDCG@3:0.0969,HR@5:0.2245,NDCG@5:0.1334,HR@10:0.3539,NDCG@10:0.1747,HR@20:0.5343,NDCG@20:0.2199)
+INFO:root:Saving top-100 recommendation results to: ../log/ComiRec/ComiRec__MIND_small__0__lr=0/rec-ComiRec-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/ComiRec/ComiRec__MIND_small__0__lr=0/rec-ComiRec-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2024-12-29 21:44:56 ---------------------------------------------

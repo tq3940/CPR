@@ -1,0 +1,73 @@
+INFO:root:Namespace(model_name='LightGCN', model_mode='CPR')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-29 23:15:12 ---------------------------------------------
+INFO:root:
+====================================
+ Arguments          | Values        
+====================================
+ batch_size         | 2048         
+ choose_rate        | 4.0          
+ data_appendix      |              
+ dataset            | MovieLens_1M 
+ dropout            | 0            
+ dyn_sample_rate    | 2.0          
+ early_stop         | 10           
+ emb_size           | 128         
+ epoch              | 200          
+ eval_batch_size    | 256          
+ gpu                | 0            
+ k_samples          | 2            
+ l2                 | 1e-06        
+ lr                 | 0.001        
+ main_metric        | NDCG@2       
+ n_layers           | 3            
+ num_neg            | 1            
+ num_workers        | 12           
+ optimizer          | Adam         
+ random_seed        | 0            
+ save_final_results | 1            
+ test_all           | 0            
+ topk               | 1,2,3,5,10,20
+====================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MovieLens_1M/Readers/CPRReader.pkl
+INFO:root:#params: 18757632
+INFO:root:LightGCNCPR(
+  (encoder): LGCNEncoder(
+    (embedding_dict): ParameterDict(
+        (item_emb): Parameter containing: [torch.cuda.FloatTensor of size 3126x2048 (cuda:0)]
+        (user_emb): Parameter containing: [torch.cuda.FloatTensor of size 6033x2048 (cuda:0)]
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@1:0.0101,NDCG@1:0.0101,HR@2:0.0219,NDCG@2:0.0176,HR@3:0.0362,NDCG@3:0.0247,HR@5:0.0532,NDCG@5:0.0318,HR@10:0.1054,NDCG@10:0.0486,HR@20:0.2102,NDCG@20:0.0749)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.6851242 [30.2 s]	dev=(HR@2:0.1737,NDCG@2:0.1499) test=(HR@1:0.0839,NDCG@1:0.0839) [0.9 s] *
+INFO:root:Epoch 2     loss=0.5873783 [28.7 s]	dev=(HR@2:0.1694,NDCG@2:0.1472) [0.6 s]
+INFO:root:Epoch 3     loss=0.4763597 [28.0 s]	dev=(HR@2:0.1725,NDCG@2:0.1489) [0.6 s]
+INFO:root:Epoch 4     loss=0.4262547 [28.0 s]	dev=(HR@2:0.1717,NDCG@2:0.1484) [0.5 s]
+INFO:root:Epoch 5     loss=0.4007506 [26.4 s]	dev=(HR@2:0.1725,NDCG@2:0.1502) [0.5 s] *
+INFO:root:Epoch 6     loss=0.3830206 [28.9 s]	dev=(HR@2:0.1729,NDCG@2:0.1512) [0.4 s] *
+INFO:root:Epoch 7     loss=0.3717815 [28.2 s]	dev=(HR@2:0.1799,NDCG@2:0.1546) [0.4 s] *
+INFO:root:Epoch 8     loss=0.3601386 [29.8 s]	dev=(HR@2:0.1799,NDCG@2:0.1542) [0.5 s]
+INFO:root:Epoch 9     loss=0.3527261 [29.0 s]	dev=(HR@2:0.1788,NDCG@2:0.1530) [0.4 s]
+INFO:root:Epoch 10    loss=0.3461930 [26.9 s]	dev=(HR@2:0.1780,NDCG@2:0.1544) [0.5 s]
+INFO:root:Epoch 11    loss=0.3391836 [29.5 s]	dev=(HR@2:0.1756,NDCG@2:0.1513) [0.5 s]
+INFO:root:Epoch 12    loss=0.3334071 [27.3 s]	dev=(HR@2:0.1776,NDCG@2:0.1527) [0.4 s]
+INFO:root:Epoch 13    loss=0.3276724 [27.9 s]	dev=(HR@2:0.1753,NDCG@2:0.1511) [0.4 s]
+INFO:root:Epoch 14    loss=0.3233849 [29.5 s]	dev=(HR@2:0.1753,NDCG@2:0.1512) [0.6 s]
+INFO:root:Epoch 15    loss=0.3188967 [28.7 s]	dev=(HR@2:0.1764,NDCG@2:0.1519) [0.4 s]
+INFO:root:Epoch 16    loss=0.3137017 [26.3 s]	dev=(HR@2:0.1741,NDCG@2:0.1506) [0.4 s]
+INFO:root:Early stop at 16 based on dev result.
+INFO:root:
+Best Iter(dev)=    7	 dev=(HR@2:0.1799,NDCG@2:0.1546) [461.8 s] 
+INFO:root:Load model from ../model/LightGCNCPR/LightGCNCPR__MovieLens_1M__0__lr=0.001__l2=1e-06__emb_size=128__n_layers=3__batch_size=2048__dyn_sample_rate=2.0__choose_rate=4.0__k_samples=2.pt
+INFO:root:
+Dev  After Training: (HR@1:0.1112,NDCG@1:0.1112,HR@2:0.1799,NDCG@2:0.1546,HR@3:0.2303,NDCG@3:0.1798,HR@5:0.3142,NDCG@5:0.2143,HR@10:0.4563,NDCG@10:0.2600,HR@20:0.6140,NDCG@20:0.2999)
+INFO:root:
+Test After Training: (HR@1:0.0870,NDCG@1:0.0870,HR@2:0.1465,NDCG@2:0.1245,HR@3:0.2018,NDCG@3:0.1522,HR@5:0.2836,NDCG@5:0.1856,HR@10:0.4151,NDCG@10:0.2279,HR@20:0.5626,NDCG@20:0.2653)
+INFO:root:Saving top-100 recommendation results to: ../log/LightGCNCPR/LightGCNCPR__MovieLens_1M__0__lr=0/rec-LightGCNCPR-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/LightGCNCPR/LightGCNCPR__MovieLens_1M__0__lr=0/rec-LightGCNCPR-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2024-12-29 23:23:06 ---------------------------------------------

@@ -1,0 +1,68 @@
+INFO:root:Namespace(model_name='LightGCN', model_mode='CPR')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-29 23:13:05 ---------------------------------------------
+INFO:root:
+====================================
+ Arguments          | Values        
+====================================
+ batch_size         | 2048         
+ choose_rate        | 4.0          
+ data_appendix      |              
+ dataset            | MIND_small   
+ dropout            | 0            
+ dyn_sample_rate    | 2.0          
+ early_stop         | 10           
+ emb_size           | 128         
+ epoch              | 200          
+ eval_batch_size    | 256          
+ gpu                | 0            
+ k_samples          | 2            
+ l2                 | 1e-06        
+ lr                 | 0.001        
+ main_metric        | NDCG@2       
+ n_layers           | 3            
+ num_neg            | 1            
+ num_workers        | 12           
+ optimizer          | Adam         
+ random_seed        | 0            
+ save_final_results | 1            
+ test_all           | 0            
+ topk               | 1,2,3,5,10,20
+====================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MIND_small/Readers/CPRReader.pkl
+INFO:root:#params: 39618560
+INFO:root:LightGCNCPR(
+  (encoder): LGCNEncoder(
+    (embedding_dict): ParameterDict(
+        (item_emb): Parameter containing: [torch.cuda.FloatTensor of size 2818x2048 (cuda:0)]
+        (user_emb): Parameter containing: [torch.cuda.FloatTensor of size 16527x2048 (cuda:0)]
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@1:0.0206,NDCG@1:0.0206,HR@2:0.0333,NDCG@2:0.0286,HR@3:0.0441,NDCG@3:0.0340,HR@5:0.0706,NDCG@5:0.0448,HR@10:0.1108,NDCG@10:0.0575,HR@20:0.2186,NDCG@20:0.0842)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.6878848 [10.1 s]	dev=(HR@2:0.0350,NDCG@2:0.0291) test=(HR@1:0.0461,NDCG@1:0.0461) [0.7 s] *
+INFO:root:Epoch 2     loss=0.6532975 [9.1 s]	dev=(HR@2:0.0316,NDCG@2:0.0263) [0.4 s]
+INFO:root:Epoch 3     loss=0.5614999 [10.2 s]	dev=(HR@2:0.0344,NDCG@2:0.0284) [0.4 s]
+INFO:root:Epoch 4     loss=0.4347617 [8.9 s]	dev=(HR@2:0.0325,NDCG@2:0.0278) [0.4 s]
+INFO:root:Epoch 5     loss=0.3225669 [9.0 s]	dev=(HR@2:0.0334,NDCG@2:0.0282) [0.4 s]
+INFO:root:Epoch 6     loss=0.2442060 [9.1 s]	dev=(HR@2:0.0325,NDCG@2:0.0274) [0.5 s]
+INFO:root:Epoch 7     loss=0.1951397 [9.8 s]	dev=(HR@2:0.0313,NDCG@2:0.0266) [0.5 s]
+INFO:root:Epoch 8     loss=0.1638756 [10.5 s]	dev=(HR@2:0.0325,NDCG@2:0.0276) [0.5 s]
+INFO:root:Epoch 9     loss=0.1424250 [10.4 s]	dev=(HR@2:0.0331,NDCG@2:0.0283) [0.6 s]
+INFO:root:Epoch 10    loss=0.1291747 [9.8 s]	dev=(HR@2:0.0310,NDCG@2:0.0270) [0.5 s]
+INFO:root:Epoch 11    loss=0.1180215 [10.2 s]	dev=(HR@2:0.0322,NDCG@2:0.0276) [0.5 s]
+INFO:root:Early stop at 11 based on dev result.
+INFO:root:
+Best Iter(dev)=    1	 dev=(HR@2:0.0350,NDCG@2:0.0291) [113.0 s] 
+INFO:root:Load model from ../model/LightGCNCPR/LightGCNCPR__MIND_small__0__lr=0.001__l2=1e-06__emb_size=128__n_layers=3__batch_size=2048__dyn_sample_rate=2.0__choose_rate=4.0__k_samples=2.pt
+INFO:root:
+Dev  After Training: (HR@1:0.0190,NDCG@1:0.0190,HR@2:0.0350,NDCG@2:0.0291,HR@3:0.0469,NDCG@3:0.0351,HR@5:0.0807,NDCG@5:0.0489,HR@10:0.1420,NDCG@10:0.0684,HR@20:0.2702,NDCG@20:0.1004)
+INFO:root:
+Test After Training: (HR@1:0.0461,NDCG@1:0.0461,HR@2:0.0706,NDCG@2:0.0615,HR@3:0.0892,NDCG@3:0.0709,HR@5:0.1186,NDCG@5:0.0831,HR@10:0.1971,NDCG@10:0.1076,HR@20:0.3216,NDCG@20:0.1389)
+INFO:root:Saving top-100 recommendation results to: ../log/LightGCNCPR/LightGCNCPR__MIND_small__0__lr=0/rec-LightGCNCPR-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/LightGCNCPR/LightGCNCPR__MIND_small__0__lr=0/rec-LightGCNCPR-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2024-12-29 23:15:07 ---------------------------------------------

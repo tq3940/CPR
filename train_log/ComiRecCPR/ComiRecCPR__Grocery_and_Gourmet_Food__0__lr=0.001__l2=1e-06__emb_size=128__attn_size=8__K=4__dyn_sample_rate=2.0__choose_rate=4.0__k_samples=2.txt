@@ -1,0 +1,78 @@
+INFO:root:Namespace(model_name='ComiRec', model_mode='CPR')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-29 23:23:10 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ K                  | 4                   
+ add_pos            | 1                   
+ attn_size          | 8                   
+ batch_size         | 2048                
+ choose_rate        | 4.0                 
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ dyn_sample_rate    | 2.0                 
+ early_stop         | 10                  
+ emb_size           | 128                
+ epoch              | 200                 
+ eval_batch_size    | 256                 
+ gpu                | 0                   
+ history_max        | 20                  
+ k_samples          | 2                   
+ l2                 | 1e-06               
+ lr                 | 0.001               
+ main_metric        | NDCG@2              
+ num_neg            | 1                   
+ num_workers        | 12                  
+ optimizer          | Adam                
+ random_seed        | 0                   
+ save_final_results | 1                   
+ test_all           | 0                   
+ topk               | 1,2,3,5,10,20       
+===========================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/Grocery_and_Gourmet_Food/Readers/CPRSeqReader.pkl
+INFO:root:#params: 17905708
+INFO:root:ComiRecCPR(
+  (i_embeddings): Embedding(8714, 2048)
+  (p_embeddings): Embedding(21, 2048)
+  (W1): Linear(in_features=2048, out_features=8, bias=True)
+  (W2): Linear(in_features=8, out_features=4, bias=True)
+)
+INFO:root:Test Before Training: (HR@1:0.0109,NDCG@1:0.0109,HR@2:0.0215,NDCG@2:0.0176,HR@3:0.0317,NDCG@3:0.0227,HR@5:0.0514,NDCG@5:0.0308,HR@10:0.1018,NDCG@10:0.0469,HR@20:0.2058,NDCG@20:0.0728)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.6914512 [10.4 s]	dev=(HR@2:0.2642,NDCG@2:0.2316) test=(HR@1:0.1463,NDCG@1:0.1463) [1.4 s] *
+INFO:root:Epoch 2     loss=0.6523799 [9.2 s]	dev=(HR@2:0.2899,NDCG@2:0.2555) [0.8 s] *
+INFO:root:Epoch 3     loss=0.5225574 [9.5 s]	dev=(HR@2:0.2879,NDCG@2:0.2529) [0.8 s]
+INFO:root:Epoch 4     loss=0.3424875 [9.6 s]	dev=(HR@2:0.2893,NDCG@2:0.2537) [0.8 s]
+INFO:root:Epoch 5     loss=0.2261246 [10.2 s]	dev=(HR@2:0.2928,NDCG@2:0.2579) [0.9 s] *
+INFO:root:Epoch 6     loss=0.1642272 [9.8 s]	dev=(HR@2:0.2945,NDCG@2:0.2592) [1.0 s] *
+INFO:root:Epoch 7     loss=0.1281455 [9.6 s]	dev=(HR@2:0.2971,NDCG@2:0.2620) [1.2 s] *
+INFO:root:Epoch 8     loss=0.1045094 [9.6 s]	dev=(HR@2:0.3007,NDCG@2:0.2645) [0.8 s] *
+INFO:root:Epoch 9     loss=0.0891741 [9.6 s]	dev=(HR@2:0.3026,NDCG@2:0.2668) [0.9 s] *
+INFO:root:Epoch 10    loss=0.0769006 [9.6 s]	dev=(HR@2:0.3049,NDCG@2:0.2686) [0.9 s] *
+INFO:root:Epoch 11    loss=0.0675777 [9.5 s]	dev=(HR@2:0.3054,NDCG@2:0.2694) [0.8 s] *
+INFO:root:Epoch 12    loss=0.0590528 [10.0 s]	dev=(HR@2:0.3051,NDCG@2:0.2690) [0.9 s]
+INFO:root:Epoch 13    loss=0.0550539 [9.6 s]	dev=(HR@2:0.3047,NDCG@2:0.2688) [1.0 s]
+INFO:root:Epoch 14    loss=0.0495672 [9.9 s]	dev=(HR@2:0.3048,NDCG@2:0.2688) [1.0 s]
+INFO:root:Epoch 15    loss=0.0461196 [10.2 s]	dev=(HR@2:0.3038,NDCG@2:0.2678) [1.0 s]
+INFO:root:Epoch 16    loss=0.0437178 [9.8 s]	dev=(HR@2:0.3024,NDCG@2:0.2669) [1.0 s]
+INFO:root:Epoch 17    loss=0.0410066 [9.7 s]	dev=(HR@2:0.3017,NDCG@2:0.2664) [1.0 s]
+INFO:root:Epoch 18    loss=0.0390264 [9.8 s]	dev=(HR@2:0.3018,NDCG@2:0.2664) [1.0 s]
+INFO:root:Epoch 19    loss=0.0372072 [9.9 s]	dev=(HR@2:0.2996,NDCG@2:0.2647) [1.0 s]
+INFO:root:Epoch 20    loss=0.0356774 [9.9 s]	dev=(HR@2:0.3000,NDCG@2:0.2654) [0.8 s]
+INFO:root:Early stop at 20 based on dev result.
+INFO:root:
+Best Iter(dev)=   11	 dev=(HR@2:0.3054,NDCG@2:0.2694) [215.6 s] 
+INFO:root:Load model from ../model/ComiRecCPR/ComiRecCPR__Grocery_and_Gourmet_Food__0__lr=0.001__l2=1e-06__emb_size=128__attn_size=8__K=4__dyn_sample_rate=2.0__choose_rate=4.0__k_samples=2.pt
+INFO:root:
+Dev  After Training: (HR@1:0.2079,NDCG@1:0.2079,HR@2:0.3054,NDCG@2:0.2694,HR@3:0.3676,NDCG@3:0.3005,HR@5:0.4479,NDCG@5:0.3336,HR@10:0.5461,NDCG@10:0.3654,HR@20:0.6530,NDCG@20:0.3923)
+INFO:root:
+Test After Training: (HR@1:0.1725,NDCG@1:0.1725,HR@2:0.2558,NDCG@2:0.2251,HR@3:0.3174,NDCG@3:0.2559,HR@5:0.4011,NDCG@5:0.2903,HR@10:0.5053,NDCG@10:0.3241,HR@20:0.6209,NDCG@20:0.3532)
+INFO:root:Saving top-100 recommendation results to: ../log/ComiRecCPR/ComiRecCPR__Grocery_and_Gourmet_Food__0__lr=0/rec-ComiRecCPR-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/ComiRecCPR/ComiRecCPR__Grocery_and_Gourmet_Food__0__lr=0/rec-ComiRecCPR-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2024-12-29 23:26:59 ---------------------------------------------

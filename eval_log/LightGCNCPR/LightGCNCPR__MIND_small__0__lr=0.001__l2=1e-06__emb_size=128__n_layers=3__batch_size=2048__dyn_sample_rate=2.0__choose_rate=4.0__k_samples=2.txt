@@ -1,0 +1,80 @@
+INFO:root:Namespace(model_name='LightGCN', model_mode='CPR')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-30 12:07:25 ---------------------------------------------
+INFO:root:
+
+====================================
+
+ Arguments          | Values        
+
+====================================
+
+ batch_size         | 2048         
+
+ choose_rate        | 4.0          
+
+ data_appendix      |              
+
+ dataset            | MIND_small   
+
+ dropout            | 0            
+
+ dyn_sample_rate    | 2.0          
+
+ early_stop         | 10           
+
+ emb_size           | 128         
+
+ epoch              | 200          
+
+ eval_batch_size    | 256          
+
+ gpu                | 0            
+
+ k_samples          | 2            
+
+ l2                 | 1e-06        
+
+ lr                 | 0.001        
+
+ main_metric        | NDCG@2       
+
+ n_layers           | 3            
+
+ num_neg            | 1            
+
+ num_workers        | 0            
+
+ optimizer          | Adam         
+
+ random_seed        | 0            
+
+ save_final_results | 1            
+
+ test_all           | 0            
+
+ topk               | 1,2,3,5,10,20
+
+====================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from eval_data\MIND_small\Readers\CPRReader.pkl
+INFO:root:#params: 39618560
+INFO:root:LightGCNCPR(
+  (encoder): LGCNEncoder(
+    (embedding_dict): ParameterDict(
+        (item_emb): Parameter containing: [torch.FloatTensor of size 2818x2048]
+        (user_emb): Parameter containing: [torch.FloatTensor of size 16527x2048]
+    )
+  )
+)
+INFO:root:Load model from ../model/LightGCNCPR/LightGCNCPR__MIND_small__0__lr=0.001__l2=1e-06__emb_size=128__n_layers=3__batch_size=2048__dyn_sample_rate=2.0__choose_rate=4.0__k_samples=2.pt
+INFO:root:
+
+Dev  After Training: (HR@1:0.0190,NDCG@1:0.0190,HR@2:0.0350,NDCG@2:0.0291,HR@3:0.0469,NDCG@3:0.0351,HR@5:0.0807,NDCG@5:0.0489,HR@10:0.1420,NDCG@10:0.0684,HR@20:0.2702,NDCG@20:0.1004)
+INFO:root:
+
+Test After Training: (HR@1:0.0162,NDCG@1:0.0162,HR@2:0.0226,NDCG@2:0.0202,HR@3:0.0372,NDCG@3:0.0275,HR@5:0.0501,NDCG@5:0.0329,HR@10:0.1212,NDCG@10:0.0549,HR@20:0.2342,NDCG@20:0.0828)
+INFO:root:Saving top-10 recommendation results to: ../eval_log/LightGCNCPR\LightGCNCPR__MIND_small\rec-LightGCNCPR-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+
+--------------------------------------------- END: 2024-12-30 12:07:39 ---------------------------------------------

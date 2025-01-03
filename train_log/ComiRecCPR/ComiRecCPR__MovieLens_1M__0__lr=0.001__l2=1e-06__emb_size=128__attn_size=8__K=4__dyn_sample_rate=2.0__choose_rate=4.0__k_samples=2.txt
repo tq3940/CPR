@@ -1,0 +1,70 @@
+INFO:root:Namespace(model_name='ComiRec', model_mode='CPR')
+INFO:root:--------------------------------------------- BEGIN: 2024-12-29 23:32:43 ---------------------------------------------
+INFO:root:
+====================================
+ Arguments          | Values        
+====================================
+ K                  | 4            
+ add_pos            | 1            
+ attn_size          | 8            
+ batch_size         | 2048         
+ choose_rate        | 4.0          
+ data_appendix      |              
+ dataset            | MovieLens_1M 
+ dropout            | 0            
+ dyn_sample_rate    | 2.0          
+ early_stop         | 10           
+ emb_size           | 128         
+ epoch              | 200          
+ eval_batch_size    | 256          
+ gpu                | 0            
+ history_max        | 20           
+ k_samples          | 2            
+ l2                 | 1e-06        
+ lr                 | 0.001        
+ main_metric        | NDCG@2       
+ num_neg            | 1            
+ num_workers        | 12           
+ optimizer          | Adam         
+ random_seed        | 0            
+ save_final_results | 1            
+ test_all           | 0            
+ topk               | 1,2,3,5,10,20
+====================================
+INFO:root:Device: cuda
+INFO:root:Load corpus from data/MovieLens_1M/Readers/CPRSeqReader.pkl
+INFO:root:#params: 6461484
+INFO:root:ComiRecCPR(
+  (i_embeddings): Embedding(3126, 2048)
+  (p_embeddings): Embedding(21, 2048)
+  (W1): Linear(in_features=2048, out_features=8, bias=True)
+  (W2): Linear(in_features=8, out_features=4, bias=True)
+)
+INFO:root:Test Before Training: (HR@1:0.0084,NDCG@1:0.0084,HR@2:0.0202,NDCG@2:0.0158,HR@3:0.0338,NDCG@3:0.0226,HR@5:0.0498,NDCG@5:0.0292,HR@10:0.1040,NDCG@10:0.0466,HR@20:0.1959,NDCG@20:0.0695)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.4125839 [38.6 s]	dev=(HR@2:0.2291,NDCG@2:0.1980) test=(HR@1:0.1691,NDCG@1:0.1691) [1.1 s] *
+INFO:root:Epoch 2     loss=0.1340368 [37.1 s]	dev=(HR@2:0.2307,NDCG@2:0.1964) [0.5 s]
+INFO:root:Epoch 3     loss=0.1085241 [38.1 s]	dev=(HR@2:0.2303,NDCG@2:0.1980) [0.6 s] *
+INFO:root:Epoch 4     loss=0.1005499 [37.0 s]	dev=(HR@2:0.2260,NDCG@2:0.1921) [0.6 s]
+INFO:root:Epoch 5     loss=0.0952166 [39.3 s]	dev=(HR@2:0.2221,NDCG@2:0.1911) [0.8 s]
+INFO:root:Epoch 6     loss=0.0897249 [38.4 s]	dev=(HR@2:0.2201,NDCG@2:0.1897) [0.6 s]
+INFO:root:Epoch 7     loss=0.0881368 [37.4 s]	dev=(HR@2:0.2182,NDCG@2:0.1894) [0.6 s]
+INFO:root:Epoch 8     loss=0.0857306 [37.7 s]	dev=(HR@2:0.2182,NDCG@2:0.1888) [0.6 s]
+INFO:root:Epoch 9     loss=0.0825103 [37.3 s]	dev=(HR@2:0.2194,NDCG@2:0.1895) [0.6 s]
+INFO:root:Epoch 10    loss=0.0816766 [38.4 s]	dev=(HR@2:0.2147,NDCG@2:0.1831) [0.5 s]
+INFO:root:Epoch 11    loss=0.0793907 [37.4 s]	dev=(HR@2:0.2209,NDCG@2:0.1881) [0.6 s]
+INFO:root:Epoch 12    loss=0.0785959 [39.1 s]	dev=(HR@2:0.2244,NDCG@2:0.1930) [0.8 s]
+INFO:root:Early stop at 12 based on dev result.
+INFO:root:
+Best Iter(dev)=    3	 dev=(HR@2:0.2303,NDCG@2:0.1980) [463.6 s] 
+INFO:root:Load model from ../model/ComiRecCPR/ComiRecCPR__MovieLens_1M__0__lr=0.001__l2=1e-06__emb_size=128__attn_size=8__K=4__dyn_sample_rate=2.0__choose_rate=4.0__k_samples=2.pt
+INFO:root:
+Dev  After Training: (HR@1:0.1429,NDCG@1:0.1429,HR@2:0.2303,NDCG@2:0.1980,HR@3:0.2877,NDCG@3:0.2267,HR@5:0.3767,NDCG@5:0.2633,HR@10:0.5230,NDCG@10:0.3106,HR@20:0.7022,NDCG@20:0.3559)
+INFO:root:
+Test After Training: (HR@1:0.1670,NDCG@1:0.1670,HR@2:0.2523,NDCG@2:0.2208,HR@3:0.3208,NDCG@3:0.2551,HR@5:0.4068,NDCG@5:0.2905,HR@10:0.5494,NDCG@10:0.3366,HR@20:0.6997,NDCG@20:0.3747)
+INFO:root:Saving top-100 recommendation results to: ../log/ComiRecCPR/ComiRecCPR__MovieLens_1M__0__lr=0/rec-ComiRecCPR-dev.csv
+INFO:root:dev Prediction results saved!
+INFO:root:Saving top-100 recommendation results to: ../log/ComiRecCPR/ComiRecCPR__MovieLens_1M__0__lr=0/rec-ComiRecCPR-test.csv
+INFO:root:test Prediction results saved!
+INFO:root:
+--------------------------------------------- END: 2024-12-29 23:40:34 ---------------------------------------------
